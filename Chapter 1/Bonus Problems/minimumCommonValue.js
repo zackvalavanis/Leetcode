@@ -15,5 +15,4 @@ const minCommonValue = (nums1, nums2) => {
   }
   return min === Infinity ? -1 : min
 }
-
 console.log(minCommonValue(nums1, nums2))
