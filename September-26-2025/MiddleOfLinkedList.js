@@ -69,3 +69,5 @@ const middleOfList = (head) => {
 
 let head = doublyLinked(arr)
 console.log(middleOfList(head).val)
+
+
