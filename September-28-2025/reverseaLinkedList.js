@@ -37,6 +37,7 @@ const reversedDoubleyLinkedList = (head) => {
   while(curr){
     let nextNode = curr.next
     curr.next = prev
+    current.prev = nextNode;
     prev = curr;
     curr = nextNode
   }
@@ -48,10 +49,21 @@ const reversedDoubleyLinkedList = (head) => {
   }
 }
 
-let head = main(arr)
-console.log(reversedDoubleyLinkedList(head))
 
-//singly linked list
+const findMiddleNode = (head) => { 
+  let slow = head; 
+  let fast = head; 
+
+  while(fast && fast.next){
+    slow = slow.next; 
+    fast = fast.next.next
+  }
+  return slow
+}
+
+let head = main(arr)
+console.log(findMiddleNode(head).val)
+
 
 const singlyLinked = (arr) => { 
   let head = new ListNode(arr[0])
