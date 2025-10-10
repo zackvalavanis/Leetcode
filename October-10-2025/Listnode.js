@@ -7,7 +7,7 @@ class ListNode {
 }
 
 
-var arr = [1,2,3,4,5]
+var arr = [1,1,2]
 
 const main = (arr) => { 
   let head = new ListNode(arr[0])
@@ -52,13 +52,41 @@ const reverseHead = (head) => {
     curr = next; 
   }
 
-  let current = prev; 
-  while(current){ 
-    console.log(current.val)
-    current = current.next
-  }
+  // let current = prev; 
+  // while(current){ 
+  //   console.log(current.val)
+  //   current = current.next
+  // }
 }
 
+
+const removeDuplicates = (head) => { 
+  let current = head 
+
+  while(current && current.next){ 
+    if(current.val === current.next.val){ 
+      current.next = current.next.next
+      if(current.next){
+        current.next.prev = current
+      }
+    } else { 
+      current = current.next
+    }
+  }
+  return head
+}
+
+const printList = (head) => {
+  let curr = head
+  const result = []
+  while(curr){
+    result.push(curr.val)
+    curr = curr.next
+  }
+  console.log(result.join(" -> "))
+}
+
+
 let head = main(arr)
-console.log(findMiddle(head).val)
-console.log(reverseHead(head))
+head = removeDuplicates(head)
+printList(head) 

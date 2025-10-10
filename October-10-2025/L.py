@@ -23,7 +23,30 @@ def main(arr: List[int]) -> ListNode:
     curr = curr.next
   return head
 
+def reverseList(head): 
+  prev = None 
+  curr = head 
+
+  while curr: 
+    nextNode = curr.next
+    curr.next = prev
+    curr.prev = nextNode
+    prev = curr
+    curr = nextNode
+  return prev
+
 
 head = main(arr)
-print(head.val)
+print("Original order:")
+curr = head
+while curr:
+    print(curr.val, end=" ")
+    curr = curr.next
+
+print("\nReversed order:")
+reversed_head = reverseList(head)
+curr = reversed_head
+while curr:
+    print(curr.val, end=" ")
+    curr = curr.next
 
